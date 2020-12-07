@@ -15,24 +15,24 @@
             <h1>Mission to Mars</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
-            <div class="container-fluid news no-padding" id="scraped-data">
-            <div class="row no-gutter">
-                <div class="card-body">
+        <div class="container-fluid news no-padding" id="/scrape_all">
+          <div class="row no-gutter">
+              <div class="card-body">
                 <h5 class="card-title" id="font">Latest Mars News</h5>
-                <h6 class="card-subtitle mb-2 " id="font">{{ mars.title }}</h6>
-                <p class="card-text">{{ mars.info }}</p>
-                <a href={{ mars.news_url }} target="_blank">Check All News</a>
-                </div>
-            </div> 
-      </div>
-      <div class="row no-gutter img-table">
+                  <h6 class="card-subtitle mb-2 " id="font">{{ mars_data.news_title }}</h6>
+                    <p class="card-text">{{ mars_data.news_info }}</p>
+                      <a href={ mars.news_url } target="_blank">Check All News</a>
+              </div>
+          </div> 
+        </div>
+      <!-- <div class="row no-gutter img-table">
         <div class="col-md-6" >
           <div class="card">
             <div class="card-body" id="img-table">
               <h5 class="card-title">Featured Mars Image</h5>
-              <p class="card-text" id="dark-font">{{ mars.featured_image_title }}</p>
-              <img class="card-img-bottom" src="{{ mars.featured_image }}" alt="Featured Mars Image">
-              <a href={{ mars.jpl_url }} target="_blank">Check All Images</a>
+              <p class="card-text" id="dark-font">{{ mars.featured_image}}</p>
+              <img class="card-img-bottom" src="{{ mars.image}}" alt="Featured Mars Image">
+              <a href={{ mars.featured_image}} target="_blank">Check All Images</a>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@
         {% endfor %}
             </div>
     
-    </div>
+    </div> 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -80,5 +80,5 @@
     </body>
 </html> 
 
-    <!-- </body>
-</html> -->
+    </body>
+</html> 
