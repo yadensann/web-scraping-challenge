@@ -9,56 +9,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
 
-    <body>
-    
-        <div class="jumbotron text-center">
-            <h1>Mission to Mars</h1>
-            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
-        </div>
-        <div class="container-fluid news no-padding" id="/scrape_all">
-          <div class="row no-gutter">
-              <div class="card-body">
-                <h5 class="card-title" id="font">Latest Mars News</h5>
-                  <h6 class="card-subtitle mb-2 " id="font">{{ mars_data.news_title }}</h6>
-                    <p class="card-text">{{ mars_data.news_info }}</p>
-                      <a href={ mars.news_url } target="_blank">Check All News</a>
-              </div>
-          </div> 
-        </div>
-      <!-- <div class="row no-gutter img-table">
-        <div class="col-md-6" >
-          <div class="card">
-            <div class="card-body" id="img-table">
-              <h5 class="card-title">Featured Mars Image</h5>
-              <p class="card-text" id="dark-font">{{ mars.featured_image}}</p>
-              <img class="card-img-bottom" src="{{ mars.image}}" alt="Featured Mars Image">
-              <a href={{ mars.featured_image}} target="_blank">Check All Images</a>
-            </div>
+  <body>
+
+    <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <div class="container-fluid news no-padding" id="/scrape">
+      <div class="row no-gutter">
+          <div class="card-body">
+            <h5 class="card-title" id="font">Latest Mars News</h5>
+              <h6 class="card-subtitle mb-2 " id="font">{{ mars.news_title }}</h6>
+                <p class="card-text">{{ mars.news_info }}</p>
+                  <a href= "https://mars.nasa.gov/news/"> Check All News</a>
           </div>
-        </div>
-        <div class="col-md-6" >
-          <div class="card">
-            <div class="card-body" id="img-table">
-              <div class="col-md-12">
-                <h5 class="card-title">Current Weather on Mars</h5>
-                <p class="card-text" id="dark-font">{{ mars.weather }}</p>
-              </div>
-            </div>
-            <div class="card-body" id="img-table">
-              <div class="col-md-12">
-                <div>
-                  <h5 class="card-title">Mars Facts</h5>
-                  <p class="card-text"id="dark-font" >{{ mars.fact_table | safe }}</p>
-                </div>
-              </div>
-            </div>
+      </div> 
+    </div>
+    <div class="row no-gutter img-table">
+      <div class="col-md-6" >
+        <div class="card">
+          <div class="card-body" id="img-table">
+            <h5 class="card-title">Featured Mars Image</h5>
+              <p class="card-text" id="dark-font">Crater Dunes</p>
+                <img class="card-img-bottom" src="{{mars.featured_image}}" alt="Featured Mars Image">
+                <br> 
+                <br>
+                <a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars">Check All Images</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class ="row" id="mars-hemispheres">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Mars Facts</h3>
+        </div>
+        <div class="panel-body">
+          <table>
+          {{ mars.facts|safe }}
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="card-body" id="img-table">
+      <div class="col-md-12">
+          <h5 class="card-title">Mars Facts</h5>
+          <table>
+          <p class="card-text"id="dark-font" >{{mars.facts | safe}}</p>
+          </table>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class ="row" id="mars-hemispheres">
     <div class = "col-md-12">
         <h3><center>Mars Hemispheres</center></h3>
         {% for hemisphere in mars.hemisphere_image_urls %}
@@ -70,15 +74,12 @@
                 </div>
         {% endfor %}
             </div>
-    
-    </div> 
+     -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
+  </body>
 </html> 
 
-    </body>
-</html> 
