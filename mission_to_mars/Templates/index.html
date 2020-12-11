@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mission to Mars</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    </head>
+    <link rel="stylesheet" type="text/css" href="Templates/stylesheet.css">
+  </head>
 
   <body>
 
     <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape It Up</a></p>
     </div>
     <div class="container-fluid news no-padding" id="/scrape">
       <div class="row no-gutter">
@@ -52,19 +53,39 @@
       </div>
     </div>
 
-    <div class ="row" id="mars-hemispheres">
-      <div class = "col-md-12">
-        <h3><center>Mars Hemispheres</center></h3>
-          {% for hemisphere in mars.hemisphere_images %}
-            <div class = "col-md-6">
-              <div class = "thumbnail">
-                <img src = "{{hemisphere.image_link}}">
-                  <h3>{{hemisphere.image_link}}</h3>
-              </div>
-            </div>
-          {% endfor %}
+    <section id="lower" class="">
+      <div class="row mt-5">
+        <div class="col-md-12 text-center">
+          <h2>Mars Hemispheres</h2><hr>
+        </div>
       </div>
-    </div>
+      {% for hemisphere in mars.hemisphere_images %}
+      <div class="col-md-6">
+        <figure class="figure">
+          <img class="thumbnail" src="{{ hemisphere.img_url }}" width="400" height="400">
+            <figcaption class="figure-caption"><h4>{{ hemisphere.title }}</h4></figcaption>
+        </figure>
+      </div>
+      {% endfor %}
+    </section>
+
+
+    <!-- <div class="container-fluid padding">
+      <div class="row padding">
+          <div class ="row" id="mars-hemispheres">
+            <div class = "col-md-12"> -->
+        <!-- <h3><center>Mars Hemispheres</center></h3>
+        {% for hemisphere in mars.mars_hemispheres %}
+        <div class = "col-md-6">
+          <div class = "card text-center">
+            <h4 class="card-title">{{mars.hemisphere_images[Title]}}</h4>
+            <img class="card-img-top" src= "{{mars.hemisphere_images[Photo]}}" style="max-width:100%; max-height: auto;">
+            <img src = "{{hem_dict.image_link}}"> -->
+          <!-- </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>  -->
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
