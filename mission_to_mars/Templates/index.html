@@ -52,29 +52,20 @@
       </div>
     </div>
 
-    <!-- <div class="card-body" id="img-table">
-      <div class="col-md-12">
-          <h5 class="card-title">Mars Facts</h5>
-          <table>
-          <p class="card-text"id="dark-font" >{{mars.facts | safe}}</p>
-          </table>
+    <div class ="row" id="mars-hemispheres">
+      <div class = "col-md-12">
+        <h3><center>Mars Hemispheres</center></h3>
+          {% for hemisphere in mars.hemisphere_images %}
+            <div class = "col-md-6">
+              <div class = "thumbnail">
+                <img src = "{{hemisphere.image_link}}">
+                  <h3>{{hemisphere.image_link}}</h3>
+              </div>
+            </div>
+          {% endfor %}
       </div>
     </div>
-  </div> -->
 
-  <!-- <div class ="row" id="mars-hemispheres">
-    <div class = "col-md-12">
-        <h3><center>Mars Hemispheres</center></h3>
-        {% for hemisphere in mars.hemisphere_image_urls %}
-            <div class = "col-md-6">
-                <div class = "thumbnail">
-                    <img src = "{{hemisphere.image_url}}">
-                        <h3>{{hemisphere.title}}</h3>
-                    </div>
-                </div>
-        {% endfor %}
-            </div>
-     -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

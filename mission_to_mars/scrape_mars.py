@@ -36,6 +36,9 @@ def scrape():
     #Latest News About Mars
     news_url = 'https://mars.nasa.gov/news/'
     browser.visit(news_url)
+
+    time.sleep(1)
+
     news_html = browser.html
     news_soup = bs(news_html, 'lxml')
     article = news_soup.find('div', class_= 'list_text')
@@ -48,10 +51,15 @@ def scrape():
 # def feat_image():
     image_url = "https://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA24247-640x350.jpg"
     browser.visit(image_url)
+
+
+    time.sleep(1)
+
     html = browser.html
-    image_soup = bs(image_html, 'html.parser')
-    image = image_soup.find("img", class_= 'thumb')['src']
-    featured_image = "https://www.jpl.nasa.gov" + image
+    image_soup = bs(html, 'html.parser')
+    image = image_soup.find("img")['src']
+    featured_image=image
+    # featured_image = "https://www.jpl.nasa.gov" + image
 #     return featured_image
     
     
@@ -60,6 +68,10 @@ def scrape():
 
     url = 'https://space-facts.com/mars/'
     browser.visit(url)
+
+
+    time.sleep(1)
+
     data = pd.read_html(url)
     mars_df = pd.DataFrame(data[0])
 #     facts = mars_df.to_html(header= False, index= False)
@@ -75,23 +87,26 @@ def scrape():
 
     # Mars Hemispheres
 # def mars_hem():
-    hemispheres_url ="https://astrogeology.usgs.gov/search/resultsq=hemisphere+enhanced&k1=target&v1=Mars"
-    hem_browser.visit(hemispheres_url)
+    hemispheres_url ="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(hemispheres_url)
+    
+    time.sleep(1)
+
     hem_html = browser.html
     hemisphere_soup = bs(html, "html.parser")
     mars_hemispheres= []
-    hem_info = hemisphere_soup.find('div', class_= "item")
-    hemispheres = hem_info.find_all('div', class_ = 'item')
+    # hem_info = hemisphere_soup.find('div', class_= "item")
+    hemispheres = hemisphere_soup.find_all('div', class_ = 'item')
 
     for hemisphere in hemispheres:
         browser.visit(hemispheres_url)
         hem_html = browser.html
         hem_soup= bs(hem_html, "html.parser")
 
-        hem_titles = result.find('h3').text
+        hem_titles = hem_soup.find('h3').text
         new_title = hem_titles.replace('Enhanced', '')
 
-        ref_link = result.find("a")["href"]
+        ref_link = hem_soup.find("a")["href"]
         image_link = "https://astrogeology.usgs.gov/" + ref_link            
 
         downloads = hem_soup.find("div", class_="downloads")
@@ -111,10 +126,12 @@ def scrape():
     mars_data['facts'] = facts
     mars_data['hemisphere_images'] = mars_hemispheres
     
+    browser.quit()
+
     return mars_data
 
 
-    browser.quit()
+
 
     
 # def scrape_all():
