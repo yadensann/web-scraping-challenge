@@ -20,7 +20,5 @@
 ### Step 2 - MongoDB and Flask Application
 - Used MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped.
 
-![Alt text](//Users/yaden/Desktop/web-scraping-challenge/mission_to_mars/Images/page1.png?raw=true "Title")
-
-
-![alt text](/Users/yaden/Desktop/page2.png)
+![](https://github.com/yadensann/web-scraping-challenge/blob/main/mission_to_mars/Images/page1.png)
+![](https://github.com/yadensann/web-scraping-challenge/blob/main/mission_to_mars/Images/page2.png)
